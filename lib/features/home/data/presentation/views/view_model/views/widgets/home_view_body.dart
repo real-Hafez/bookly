@@ -10,8 +10,29 @@ class HomeViewBody extends StatelessWidget {
     return const Column(
       children: [
         Custom_Appbar(),
-        Custom_List_View_ITem(),
+        Featuredlistview(),
       ],
+    );
+  }
+}
+
+class Featuredlistview extends StatelessWidget {
+  const Featuredlistview({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .3,
+      child: ListView.builder(
+        itemCount: 10,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) => const Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 6,
+          ),
+          child: Featured_item(),
+        ),
+      ),
     );
   }
 }
