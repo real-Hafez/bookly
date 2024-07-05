@@ -13,28 +13,54 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Custom_Appbar(),
-        const Featuredlistview(),
-        Padding(
-          padding: const EdgeInsets.only(left: 24, top: 47),
-          child: Text(
-            'Best Seller',
-            style: GoogleFonts.abel(
-              textStyle: Styles.textstyle18.copyWith(
-                fontSize: 26,
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Custom_Appbar(),
+            const Featuredlistview(),
+            Padding(
+              padding: const EdgeInsets.only(left: 24, top: 47),
+              child: Text(
+                'Best Seller',
+                style: GoogleFonts.abel(
+                  textStyle: Styles.textstyle18.copyWith(
+                    fontSize: 26,
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        const Bestsellerlistviewitem(),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
+        )),
+        const SliverToBoxAdapter(
+          child: Bestsellerlistview(),
+        )
       ],
     );
   }
 }
 
+class Bestsellerlistview extends StatelessWidget {
+  const Bestsellerlistview({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: 10,
+      padding: EdgeInsets.zero,
+      itemBuilder: (context, index) {
+        return const Padding(
+          padding: EdgeInsets.symmetric(vertical: 9),
+          child: Bestsellerlistviewitem(),
+        );
+      },
+    );
+  }
+}
