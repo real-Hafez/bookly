@@ -3,6 +3,7 @@ import 'package:bookly/features/home/data/presentation/views/view_model/views/wi
 import 'package:bookly/features/home/data/presentation/views/view_model/views/widgets/books_Action.dart';
 import 'package:bookly/features/home/data/presentation/views/view_model/views/widgets/custom_book_image.dart';
 import 'package:bookly/features/home/data/presentation/views/view_model/views/widgets/custom_app_bar_book_detils.dart';
+import 'package:bookly/features/home/data/presentation/views/view_model/views/widgets/similar_Books_list_view.dart';
 import 'package:bookly/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -50,6 +51,25 @@ class book_detils_view_body extends StatelessWidget {
             height: 37,
           ),
           const Book_action(),
+          const SizedBox(
+            height: 51,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'You can also like',
+              style: Styles.textStyle14.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          const similar_Books_list_view(),
+          const SizedBox(
+            height: 40,
+          )
         ],
       ),
     );
