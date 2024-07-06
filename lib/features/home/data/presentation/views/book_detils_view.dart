@@ -9,6 +9,7 @@ class book_detils_view extends StatelessWidget {
     return const Scaffold(
       body: SafeArea(
         child: book_detils_view_body(),
+        
       ),
     );
   }
