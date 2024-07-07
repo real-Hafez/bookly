@@ -50,4 +50,3 @@ class book_detils_view_body extends StatelessWidget {
     );
   }
 }
-

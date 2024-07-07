@@ -1,6 +1,8 @@
+import 'package:bookly/core/utilts/app_utilts.dart';
 import 'package:bookly/core/utilts/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class Custom_Appbar extends StatelessWidget {
   const Custom_Appbar({super.key});
@@ -18,7 +20,9 @@ class Custom_Appbar extends StatelessWidget {
             width: 120,
           ),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                GoRouter.of(context).push(app_routers.k_Book_search);
+              },
               icon: const Icon(
                 FontAwesomeIcons.magnifyingGlass,
                 size: 24,
