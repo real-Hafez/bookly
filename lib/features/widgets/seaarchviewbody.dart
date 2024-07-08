@@ -53,7 +53,8 @@ class search_List_view extends StatelessWidget {
         padding: EdgeInsets.symmetric(
           vertical: 10,
         ),
-        child: book_List_view_item(),
+        // child: book_List_view_item(bookModel: )),
+        child: Text('data'),
       ),
     );
   }
