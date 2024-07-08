@@ -15,7 +15,10 @@ class similar_Books_list_view extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: 5,
           ),
-          child: custom_book_image(),
+          child: custom_book_image(
+            image_url:
+                'https://m.media-amazon.com/images/I/61j1khSftbL._AC_SL1024_.jpg',
+          ),
         ),
       ),
     );

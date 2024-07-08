@@ -15,7 +15,10 @@ class book_dtls_sec extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: witdh * .2),
-          child: const custom_book_image(),
+          child: const custom_book_image(
+            image_url:
+                'https://m.media-amazon.com/images/I/61j1khSftbL._AC_SL1024_.jpg',
+          ),
         ),
         const SizedBox(
           height: 35,
