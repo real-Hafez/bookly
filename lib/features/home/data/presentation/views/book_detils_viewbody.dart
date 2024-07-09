@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/data/presentation/views/view_model/views/widgets/book_dtls_sec.dart';
 import 'package:bookly/features/home/data/presentation/views/view_model/views/widgets/custom_app_bar_book_detils.dart';
 import 'package:bookly/features/home/data/presentation/views/view_model/views/widgets/similar_Books_list_view.dart';
@@ -5,7 +6,8 @@ import 'package:bookly/styles.dart';
 import 'package:flutter/material.dart';
 
 class book_detils_view_body extends StatelessWidget {
-  const book_detils_view_body({super.key});
+  const book_detils_view_body({super.key, required this.bookModel});
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,9 @@ class book_detils_view_body extends StatelessWidget {
             child: Column(
               children: [
                 const custom_app_bar_book_detils(),
-                const book_dtls_sec(),
+                BookDetailsSection(
+                  book: bookModel,
+                ),
                 const Expanded(
                   child: SizedBox(
                     height: 51,
@@ -38,7 +42,7 @@ class book_detils_view_body extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                const similar_Books_list_view(),
+                const SimilarBooksListview(),
                 const SizedBox(
                   height: 40,
                 )

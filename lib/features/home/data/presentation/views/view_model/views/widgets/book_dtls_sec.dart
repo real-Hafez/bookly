@@ -1,40 +1,49 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/data/presentation/views/view_model/views/widgets/BookRating.dart';
 import 'package:bookly/features/home/data/presentation/views/view_model/views/widgets/books_Action.dart';
 import 'package:bookly/features/home/data/presentation/views/view_model/views/widgets/custom_book_image.dart';
 import 'package:bookly/styles.dart';
 import 'package:flutter/material.dart';
 
-class book_dtls_sec extends StatelessWidget {
-  const book_dtls_sec({super.key});
+class BookDetailsSection extends StatelessWidget {
+  const BookDetailsSection({super.key, required this.book});
 
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
-    var witdh = MediaQuery.of(context).size.width;
+    var width = MediaQuery.of(context).size.width;
 
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: witdh * .2),
-          child: const custom_book_image(
-            image_url:
-                'https://m.media-amazon.com/images/I/61j1khSftbL._AC_SL1024_.jpg',
+          padding: EdgeInsets.symmetric(
+            horizontal: width * .2,
+          ),
+          child: custom_book_image(
+            image_url: book.volumeInfo.imageLinks.thumbnail ?? '',
           ),
         ),
         const SizedBox(
-          height: 35,
+          height: 43,
         ),
-        const Text(
-          'The Jungle Book',
-          style: Styles.textStyle30,
+        Text(
+          book.volumeInfo.title!,
+          style: Styles.textStyle30.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 6,
         ),
-        const Opacity(
-          opacity: 0.7,
+        Opacity(
+          opacity: .7,
           child: Text(
-            'Rudyard Kipling',
-            style: Styles.textStyle18,
+            book.volumeInfo.authors?[0] ?? '',
+            style: Styles.textStyle18.copyWith(
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
         const SizedBox(
@@ -46,7 +55,9 @@ class book_dtls_sec extends StatelessWidget {
         const SizedBox(
           height: 37,
         ),
-        const Book_action(),
+        Book_action(
+          bookModel: book,
+        ),
       ],
     );
   }

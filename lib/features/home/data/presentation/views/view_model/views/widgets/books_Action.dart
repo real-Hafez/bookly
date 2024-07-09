@@ -1,8 +1,9 @@
 import 'package:bookly/core/widgets/cuatom_button.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 class Book_action extends StatelessWidget {
-  const Book_action({super.key});
+  const Book_action({super.key, required BookModel bookModel});
 
   @override
   Widget build(BuildContext context) {
